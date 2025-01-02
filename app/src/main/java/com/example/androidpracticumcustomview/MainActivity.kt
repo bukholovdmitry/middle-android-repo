@@ -1,45 +1,25 @@
 package com.example.androidpracticumcustomview
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.TextView
 import androidx.activity.ComponentActivity
-import com.example.androidpracticumcustomview.ui.theme.CustomContainer
-
-/*
-Задание:
-Реализуйте необходимые компоненты.
-*/
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*
-        Раскомментируйте нужный вариант
-         */
-        startXmlPracticum() // «традиционный» android (XML)
-//          setContent { // Jetpack Compose
-//             MainScreen()
-    }
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
 
-    private fun startXmlPracticum() {
-        val customContainer = CustomContainer(this)
-        setContentView(customContainer)
-
-        val firstView = TextView(this).apply {
-            // TODO
-            // ...
+        val buttonToXML = findViewById<AppCompatButton>(R.id.button_xml)
+        buttonToXML.setOnClickListener {
+            this.startActivity(Intent(this, TraditionalActivity::class.java))
         }
 
-        val secondView = TextView(this).apply {
-            // TODO
-            // ...
+        val buttonToCompose = findViewById<AppCompatButton>(R.id.button_compose)
+        buttonToCompose.setOnClickListener {
+            this.startActivity(Intent(this, ComposeActivity::class.java))
         }
-
-        // Добавление второго элемента через некоторое время
-        Handler(Looper.getMainLooper()).postDelayed({
-            customContainer.addView(secondView)
-        }, 2000)
     }
 }
