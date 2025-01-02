@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">android practicum custom view</string>
+    <string name="throw_message_many_childs">В контейнер нельзя поместить более двух элементов</string>
+    <string name="first_element_text">Первый элемент</string>
+    <string name="second_element_text">Второй элемент</string>
+    <string name="traditional_activity">\"Тардиционная\" верстка</string>
+    <string name="compose_activity">Compose верстка</string>
 </resources>
